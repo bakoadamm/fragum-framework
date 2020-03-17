@@ -13,6 +13,6 @@ $router->get('/rolunk', 'AboutController@render');
 
 $router->get('/blog/@id', 'StartPageController@blog');
 
-$router->post('bar', function() { 
+$router->post('/bar', function() { 
     echo "POST bar\n"; 
 });

@@ -6,10 +6,12 @@ class Request {
 
     private $method;
     private $path;
+	private $body;
 
     public function __construct($method, $path) {
         $this->method = $method;
         $this->path = explode('/', $path)[3];
+		$this->setBody();
     }
 
     public function getMethod() {
@@ -20,21 +22,23 @@ class Request {
         return $this->path;
     }
 
-	public function getBody() {
-		$body = null;
-		
-		if (strtolower($this->method) != 'get') {
-			$body = json_decode(file_get_contents('php://input'));
-			if ($body == null || $body == '') {
-				if($_POST) {
-					$body = (object)$_POST;
-				} else {
-					$body = null;
-				}
-			}
+	public function setBody() {
+		$this->body = null;
+		if (strtolower($this->method) === 'get') {
+			return false;
 		}
-		
-		return $body;
+		$this->body = json_decode(file_get_contents('php://input'));
+
+		if($this->body != null || $this->body != '') {
+			return false;
+		}
+
+		$this->body = isset($_POST) ? (object)$_POST : null;
 	}
+
+	public function getBody() {
+		return $this->body;
+	}
+
 
 }

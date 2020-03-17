@@ -2,7 +2,8 @@
     "require": {
         "twig/twig": "^2.0",
         "vlucas/phpdotenv": "^4.1",
-        "wanfeiyy/dd": "^1.0"
+        "wanfeiyy/dd": "^1.0",
+        "illuminate/database": "^7.1"
     },
     "autoload": {
     "psr-4": {

@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Dotenv\Dotenv;
-
 class Dispatcher {
 
     private $router, $twig, $loader;
@@ -16,7 +14,6 @@ class Dispatcher {
     }
 
     function handle(Request $request) {
-        dd($request);
         $handler = $this->router->match($request);
         if ( ! $handler) {
             $this->loader->addPath(getenv('APP_TEMPLATE_DIR'), 'templates');
