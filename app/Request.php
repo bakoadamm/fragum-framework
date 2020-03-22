@@ -2,6 +2,8 @@
 
 namespace App;
 
+use \App\http\RequestMethod;
+
 class Request {
 
     private $method;
@@ -24,7 +26,7 @@ class Request {
 
 	public function setBody() {
 		$this->body = null;
-		if (strtolower($this->method) === 'get') {
+		if (RequestMethod::isEqueal($this->method, RequestMethod::GET)) {
 			return false;
 		}
 		$this->body = json_decode(file_get_contents('php://input'));
@@ -34,6 +36,7 @@ class Request {
 		}
 
 		$this->body = isset($_POST) ? (object)$_POST : null;
+		return true;
 	}
 
 	public function getBody() {
