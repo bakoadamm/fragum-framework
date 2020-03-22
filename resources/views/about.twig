@@ -5,11 +5,119 @@
 {% endblock %}
 
 {% block content %}
-<h1>About oldal</h1>
-<div class="uk-card uk-card-default uk-card-body uk-width-1@m uk-box-shadow-small uk-box-shadow-bottom uk-padding-large uk-animation-fade">
-    <h1 class="uk-card-title">About oldal</h1>
-    <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-</div>
+    <section class="uk-section uk-section-secondary uk-section-large">
+        <div class="uk-container">
+            <div class="uk-grid uk-child-width-1-2@l uk-flex-middle">
+                <div>
+                    <h6>SIMPLIFY THINGS</h6>
+                    <h2 class="uk-margin-small-top uk-h1">Manage all your data from one place only.</h2>
+                    <p class="subtitle-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <a href="#" class="uk-button uk-button-primary uk-border-pill uk-icon" data-uk-icon="arrow-right">LEARN MORE<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="arrow-right"><polyline fill="none" stroke="#000" points="10 5 15 9.5 10 14"></polyline><line fill="none" stroke="#000" x1="4" y1="9.5" x2="15" y2="9.5"></line></svg></a>
+                </div>
+                <div data-uk-scrollspy="cls: uk-animation-fade" class="uk-scrollspy-inview uk-animation-fade" style="">
+                    <img src="/fragumfw/public/assets/img/2.jpg" data-src="img/marketing-2.svg" data-uk-img="" alt="Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content" class="uk-section uk-section-default">
+        <div class="uk-container">
+            <div class="uk-section uk-section-small uk-padding-remove-top">
+                <ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center" data-uk-switcher="connect: .uk-switcher; animation: uk-animation-fade">
+                    <li class="uk-active"><a class="uk-border-pill uk-background-secondary" href="#" aria-expanded="true">Discover</a></li>
+                    <li><a class="uk-border-pill uk-background-secondary" href="#" aria-expanded="false">Benefits</a></li>
+                    <li><a class="uk-border-pill uk-background-secondary" href="#" aria-expanded="false">Features</a></li>
+                </ul>
+            </div>
+
+            <ul class="uk-switcher uk-margin" style="touch-action: pan-y pinch-zoom;">
+                <li class="uk-active">
+                    <div class="uk-grid uk-child-width-1-2@l uk-flex-middle" data-uk-grid="" data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
+                        <div class="uk-first-column uk-scrollspy-inview uk-animation-slide-left-medium" style="">
+                            <img src="/fragumfw/public/assets/img/1.jpg" data-src="img/marketing-1.svg" alt="" data-uk-img="">
+                        </div>
+                        <div data-uk-scrollspy-class="uk-animation-slide-right-medium" class="uk-scrollspy-inview uk-animation-slide-right-medium" style="">
+                            <h6 class="uk-text-primary">MAIN REASONS</h6>
+                            <h2 class="uk-margin-small-top">Take decisions with real time data based on users interaction.</h2>
+                            <p class="subtitle-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation.
+                            </p>
+                            <div class="uk-grid uk-child-width-1-2@s" data-uk-grid="">
+                                <div class="uk-first-column">
+                                    <h4>Great stuff</h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. <a href="">Learn more.</a></p>
+                                </div>
+                                <div>
+                                    <h4>Data analysis</h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. <a href="">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-grid uk-child-width-1-2@l uk-flex-middle uk-grid-stack" data-uk-grid="" data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
+                        <div style="visibility: hidden;">
+                            <img src="/fragumfw/public/assets/img/1.jpg" data-src="img/marketing-8.svg" alt="" data-uk-img="">
+                        </div>
+                        <div data-uk-scrollspy-class="uk-animation-slide-right-medium" style="visibility: hidden;">
+                            <h6 class="uk-text-primary">MAIN REASONS</h6>
+                            <h2 class="uk-margin-small-top">Take decisions with real time data based on users interaction.</h2>
+                            <p class="subtitle-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation.
+                            </p>
+                            <div class="uk-grid uk-child-width-1-2@s uk-grid-stack" data-uk-grid="">
+                                <div>
+                                    <h4>Great stuff</h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. <a href="">Learn more.</a></p>
+                                </div>
+                                <div>
+                                    <h4>Data analysis</h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. <a href="">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="uk-grid uk-child-width-1-2@l uk-flex-middle uk-grid-stack" data-uk-grid="" data-uk-scrollspy="target: > div; cls: uk-animation-slide-left-medium">
+                        <div style="visibility: hidden;">
+                            <img src="/fragumfw/public/assets/img/1.jpg" data-src="img/marketing-9.svg" alt="" data-uk-img="">
+                        </div>
+                        <div data-uk-scrollspy-class="uk-animation-slide-right-medium" style="visibility: hidden;">
+                            <h6 class="uk-text-primary">MAIN REASONS</h6>
+                            <h2 class="uk-margin-small-top">Take decisions with real time data based on users interaction.</h2>
+                            <p class="subtitle-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation.
+                            </p>
+                            <div class="uk-grid uk-child-width-1-2@s uk-grid-stack" data-uk-grid="">
+                                <div>
+                                    <h4>Great stuff</h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. <a href="">Learn more.</a></p>
+                                </div>
+                                <div>
+                                    <h4>Data analysis</h4>
+                                    <p>Ut enim ad minim veniam, quis nostrud magna aliqua exercitation. <a href="">Learn more.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+    </section>
 {% endblock %}
 
 {% block js %}

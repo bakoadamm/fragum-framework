@@ -7,7 +7,9 @@ use \App\http\RequestMethod;
 class Request {
 
     private $method;
+
     private $path;
+
 	private $body;
 
     public function __construct($method, $path) {
@@ -29,6 +31,7 @@ class Request {
 		if (RequestMethod::isEqueal($this->method, RequestMethod::GET)) {
 			return false;
 		}
+
 		$this->body = json_decode(file_get_contents('php://input'));
 
 		if($this->body != null || $this->body != '') {
@@ -42,6 +45,4 @@ class Request {
 	public function getBody() {
 		return $this->body;
 	}
-
-
 }
