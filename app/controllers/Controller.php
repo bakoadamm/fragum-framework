@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use Dotenv\Dotenv;
-
 class Controller {
 
     protected $loader;

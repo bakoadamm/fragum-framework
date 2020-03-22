@@ -59,15 +59,16 @@
 
 {% include('@templates/fragments/menu.twig') %}
 
-
+{#
 <section class="uk-section uk-section-large uk-flex-1" style="/*height: 1500px;*/">
     <div class="uk-container">
         <div class="uk-grid uk-child-width-1-2@l uk-flex-middle">
-            {% block content %}{% endblock %}
+
         </div>
     </div>
 </section>
-
+#}
+{% block content %}{% endblock %}
 
 <footer class="uk-section uk-section-secondary uk-padding-remove-bottom" uk-sticky="top: 100vh">
     <div class="uk-container">

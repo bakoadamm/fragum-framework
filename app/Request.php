@@ -5,7 +5,9 @@ namespace App;
 class Request {
 
     private $method;
+
     private $path;
+
 	private $body;
 
     public function __construct($method, $path) {
@@ -24,9 +26,11 @@ class Request {
 
 	public function setBody() {
 		$this->body = null;
+
 		if (strtolower($this->method) === 'get') {
 			return false;
 		}
+
 		$this->body = json_decode(file_get_contents('php://input'));
 
 		if($this->body != null || $this->body != '') {
