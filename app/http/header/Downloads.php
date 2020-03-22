@@ -6,7 +6,7 @@
  * Time: 20:37
  */
 
-namespace App\http\header;
+namespace App\Http\Header;
 
 
 abstract class Downloads

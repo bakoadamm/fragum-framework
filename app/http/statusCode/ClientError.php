@@ -6,7 +6,7 @@
  * Time: 15:37
  */
 
-namespace App\http\statusCode;
+namespace App\Http\StatusCode;
 
 
 abstract class ClientError

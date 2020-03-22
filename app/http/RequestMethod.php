@@ -1,6 +1,6 @@
 <?php
 
-namespace App\http;
+namespace App\Http;
 
 abstract class RequestMethod {
 	const POST = 'post';

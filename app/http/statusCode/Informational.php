@@ -6,7 +6,7 @@
  * Time: 15:35
  */
 
-namespace App\http\statusCode;
+namespace App\Http\StatusCode;
 
 
 abstract class Informational

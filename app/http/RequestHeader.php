@@ -6,7 +6,7 @@
  * Time: 15:26
  */
 
-namespace App\http;
+namespace App\Http;
 
 
 abstract class RequestHeader
