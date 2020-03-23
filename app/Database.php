@@ -1,19 +1,24 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Ádám
+ * Date: 2020.03.23.
+ * Time: 2:29
+ */
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Illuminate\Events\Dispatcher;
+use Illuminate\Events\Dispatcher as IlluminateDispatcher;
 use Illuminate\Container\Container;
 
-trait Model {
+class Database {
+    private $capsule;
 
-    public $capsule;
-
-    public function setDB() {
+    public function __construct() {
         $this->capsule = new Capsule;
-        $this->capsule->setEventDispatcher(new Dispatcher(new Container));
-        $this->setDB();
+        $this->capsule->setEventDispatcher(new IlluminateDispatcher(new Container));
+        $this->capsule->bootEloquent();
         $this->capsule->addConnection([
             'driver'    => getenv('DB_CONNECTION'),
             'host'      => getenv('DB_HOST'),

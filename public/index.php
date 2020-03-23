@@ -8,6 +8,7 @@ use Dotenv\Dotenv;
 use App\Dispatcher;
 use App\Request;
 
+
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
@@ -22,12 +23,12 @@ require_once '../routes/routes.php';
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-$loader = new Twig_Loader_Filesystem(getenv('APP_TEMPLATE_DIR'));
-$twig = new \Twig_Environment($loader, [
+$loader = new \Twig\Loader\FilesystemLoader(getenv('APP_TEMPLATE_DIR'));
+$twig = new \Twig\Environment($loader, [
 	'debug' => true,
 	'autoescape' => false
 ]);
-$twig->addExtension(new Twig_Extension_Debug());
+$twig->addExtension(new \Twig\Extension\DebugExtension());
 
 $dispatcher = new Dispatcher($router, $loader, $twig);
 $dispatcher->handle(new Request($requestMethod, $_SERVER['REQUEST_URI']));

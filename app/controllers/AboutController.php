@@ -2,13 +2,21 @@
 
 namespace App\Controllers;
 
-use App\Models\Product;
+use App\Repositories\ProductRepository as Repository;
 
 class AboutController extends Controller {
-    
+
+    private $repository;
+
+    public function __construct($loader, $twig) {
+        parent::__construct($loader, $twig);
+        $this->repository = new Repository();
+    }
+
     public function render() {
 
-        $product = Product::find(1);
+        $product = $this->repository->getProductById(1);
+
         $data = [
             'product' => $product
         ];
