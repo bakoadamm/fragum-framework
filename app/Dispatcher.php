@@ -15,6 +15,9 @@ class Dispatcher {
 
     function handle(Request $request) {
         $handler = $this->router->match($request);
+
+        $params = isset($handler[1]) ? $handler[1] : null;
+
         if ( ! $handler) {
             $this->loader->addPath(getenv('APP_TEMPLATE_DIR'), 'templates');
             $tpl = $this->twig->load("@templates/errors/404.twig");
@@ -22,16 +25,16 @@ class Dispatcher {
             echo $tpl->render([]);
             return;
         }
-        
-        if(is_callable($handler)) {
-           $handler();
+
+        if(is_callable($handler[0])) {
+            $handler[0]($params);
         } else {
-            $handlerArray = explode('@', $handler);
+            $handlerArray = explode('@', $handler[0]);
             $class = $handlerArray[0];
             $method = $handlerArray[1];
             $controller = "App\\Controllers\\" . $class;
             $ctrl = new $controller($this->loader, $this->twig);
-            $ctrl->$method();
+            $ctrl->$method($params);
            
         }
         

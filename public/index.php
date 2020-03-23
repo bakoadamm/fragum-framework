@@ -7,8 +7,9 @@ require_once '../vendor/autoload.php';
 use Dotenv\Dotenv;
 use App\Dispatcher;
 use App\Request;
+use Performance\Performance;
 
-
+Performance::point();
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
@@ -21,8 +22,6 @@ if(getenv('APP_DEBUG') == 'true') {
 
 require_once '../routes/routes.php';
 
-$requestMethod = $_SERVER['REQUEST_METHOD'];
-
 $loader = new \Twig\Loader\FilesystemLoader(getenv('APP_TEMPLATE_DIR'));
 $twig = new \Twig\Environment($loader, [
 	'debug' => true,
@@ -30,5 +29,8 @@ $twig = new \Twig\Environment($loader, [
 ]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+$requestMethod = $_SERVER['REQUEST_METHOD'];
 $dispatcher = new Dispatcher($router, $loader, $twig);
 $dispatcher->handle(new Request($requestMethod, $_SERVER['REQUEST_URI']));
+
+Performance::results();

@@ -4,6 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <html lang="hu">
+{% set url = "/fragumfw/public/" %}
 <head>
 
     <!-- Basic Page Needs
@@ -47,7 +48,7 @@
     <!-- CSS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
-    <link rel="stylesheet" href="assets/css/uikit.min.css">
+    <link rel="stylesheet" href="{{ url }}assets/css/uikit.min.css">
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -114,7 +115,7 @@
     </div>
 
     <div class="uk-text-center uk-padding uk-padding-remove-horizontal">
-        <span class="uk-text-small uk-text-muted">© 2020 fragum framework - <a href="https://fragum.tech">Created by fragum.tech</a> <a href="http://fragum.tech" title="" target="_blank" data-uk-tooltip="fragum.tech" aria-expanded="false"><span data-uk-icon="uikit" class="uk-icon"><img src="assets/img/logo-200x200.png" style="height: 20px;"></span></a></span>
+        <span class="uk-text-small uk-text-muted">© 2020 fragum framework - <a href="https://fragum.tech">Created by fragum.tech</a> <a href="http://fragum.tech" title="" target="_blank" data-uk-tooltip="fragum.tech" aria-expanded="false"><span data-uk-icon="uikit" class="uk-icon"><img src="{{ url }}assets/img/logo-200x200.png" style="height: 20px;"></span></a></span>
     </div>
 </footer>
 
@@ -122,8 +123,8 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-<script src="assets/js/uikit-icons.min.js"></script>
-<script src="assets/js/uikit.min.js"></script>
+<script src="{{ url }}assets/js/uikit-icons.min.js"></script>
+<script src="{{ url }}assets/js/uikit.min.js"></script>
 {% block js %}{% endblock %}
 </body>
 </html>

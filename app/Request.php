@@ -2,7 +2,7 @@
 
 namespace App;
 
-use \App\http\RequestMethod;
+use \App\Http\RequestMethod;
 
 class Request {
 
@@ -14,7 +14,8 @@ class Request {
 
     public function __construct($method, $path) {
         $this->method = $method;
-        $this->path = explode('/', $path)[3];
+        $this->path = explode('?', $path)[0];
+
 		$this->setBody();
     }
 
