@@ -9,7 +9,6 @@ class ProductRepository extends Repository{
 
     public function getProductById($id) {
         $productById = Product::find($id);
-        //return $productById;
         return new ProductDto($productById);
     }
 

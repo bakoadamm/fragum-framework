@@ -13,11 +13,17 @@ class ProductDto {
     private $name;
 
     /**
+     * @var mixed
+     */
+    private $description;
+
+    /**
      * ProductDto constructor.
      * @param Product $product
      */
     public function __construct(Product $product) {
         $this->name = $product->name;
+        $this->description = $product->description;
     }
 
 
@@ -27,5 +33,13 @@ class ProductDto {
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

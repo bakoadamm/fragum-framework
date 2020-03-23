@@ -1,7 +1,7 @@
 {% extends '@templates/layouts/app.twig' %}
 
 {% block title %}
-    fragum framework
+    Fragum Framework
 {% endblock %}
 
 {% block content %}
@@ -9,9 +9,8 @@
         <div class="uk-container">
             <div class="uk-grid uk-child-width-1-2@l uk-flex-middle">
                 <div>
-                    {{ dump(product) }}
                     <h1>{{ product.name }}</h1>
-                    <h2 class="uk-margin-small-top uk-h1">Manage all your data from one place only.</h2>
+                    <h2 class="uk-margin-small-top uk-h2">{{  product.description }}</h2>
                     <p class="subtitle-text">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua.
