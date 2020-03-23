@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Database\Eloquent\Model;
 
-class Product extends EloquentModel {
-    use Model;
+class Product extends Model {
+
     protected $table = 'products';
 }
