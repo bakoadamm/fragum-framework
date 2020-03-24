@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Response;
+
 class StartPageController extends Controller {
 
     public function render() {
@@ -12,8 +14,14 @@ class StartPageController extends Controller {
         
     }
 
-    public function blog(){
+    public function blog($params){
+        $response = new Response(403);
+        $response->sendWithView($this->loader, $this->twig);
+
+        $data = [
+            'headline' => 'BLOG ' . $params['id']
+        ];
         $tpl = $this->twig->load("@templates/start.twig");
-        echo $tpl->render();
+        echo $tpl->render($data);
     }
 }
