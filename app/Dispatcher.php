@@ -31,6 +31,7 @@ class Dispatcher {
             $method = $handlerArray[1];
             $controller = "App\\Controllers\\" . $class;
             $ctrl = new $controller($this->loader, $this->twig);
+            $request->paramBag = $params;
             $ctrl->$method($params, $request);
            
         }

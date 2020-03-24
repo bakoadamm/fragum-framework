@@ -9,7 +9,7 @@
 namespace App\Http\StatusCode;
 
 
-class StatusText {
+class ReasonPhrase {
     private $statusList = [
         '100' => 'Continue',
         '101' => 'Switching Protocols',
@@ -52,7 +52,7 @@ class StatusText {
         '505' => 'HTTP Version Not Supported'
     ];
 
-    public function getStatusTextByCode($statusCode) {
+    public function getReasonPhraseByStatusCode($statusCode) {
         return $this->statusList[$statusCode];
     }
 

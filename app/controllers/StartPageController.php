@@ -15,6 +15,7 @@ class StartPageController extends Controller {
     }
 
     public function blog($params){
+
         $response = new Response(403);
         $response->sendWithView($this->loader, $this->twig);
 

@@ -8,8 +8,8 @@ use Dotenv\Dotenv;
 use App\Dispatcher;
 use App\Request;
 use Performance\Performance;
-//Performance::point();
 
+Performance::point();
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
@@ -35,5 +35,5 @@ $dispatcher = new Dispatcher($router, $loader, $twig);
 $dispatcher->handle(new Request($requestMethod, $_SERVER['REQUEST_URI']));
 
 if(getenv('APP_PERFORMANCE') == 'true') {
-	//Performance::results();
+	Performance::results();
 }

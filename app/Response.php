@@ -38,11 +38,11 @@ class Response
     }
 
     public function sendWithView($loader, $twig) {
-        $statusText = new StatusCode\StatusText();
-        header("HTTP/1.1 " . $this->statusCode . " ". $statusText->getStatusTextByCode($this->statusCode));
+        $reasonPhrase = new StatusCode\ReasonPhrase();
+        header("HTTP/1.1 " . $this->statusCode . " ". $reasonPhrase->getReasonPhraseByStatusCode($this->statusCode));
         $data = [
             'code' => $this->statusCode,
-            'message' => $statusText->getStatusTextByCode($this->statusCode)
+            'phrase' => $reasonPhrase->getReasonPhraseByStatusCode($this->statusCode)
         ];
 
         $loader->addPath(getenv('APP_TEMPLATE_DIR'), 'templates');

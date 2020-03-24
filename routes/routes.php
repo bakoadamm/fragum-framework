@@ -9,9 +9,14 @@ $router->get('/hello/{name}', function($params) {
     echo "hello ". $params['name'];
 });
 */
-$router->get('/test/{slug}/{id}', 'TestController@testTwo');
+
+$router->get('/p/{id:string}', 'TestController@testMethod');
 
 $router->get('/', 'StartPageController@render');
+
+$router->get('/test/{slug}/{id}', 'TestController@testTwo');
+
+
 
 $router->get('/rolunk', 'AboutController@render');
 

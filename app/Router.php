@@ -70,8 +70,14 @@ class Router {
     }
 
     private function replace($route) {
-        $routeWithRegex = preg_replace_callback('%\{{1}(.*?)\}{1}%',function($match) {
-            $return = '(?<' . $match[1] . '>[\w]+)';
+        $paramTypes = ['int' => '[\d]+', 'string' => '[a-zA-Z]+'];
+        $routeWithRegex = preg_replace_callback('%\{{1}(.*?)\}{1}%',function($match) use($paramTypes) {
+            $matchArray = explode(':', $match[1]);
+            if(isset($matchArray[1]) && array_key_exists($matchArray[1], $paramTypes)) {
+                $return = '(?<' . $matchArray[0] . '>' . $paramTypes[$matchArray[1]] .')';
+            } else {
+                $return = '(?<' . $matchArray[0] . '>[\w]+)';
+            }
             return $return;
         }, $route);
 

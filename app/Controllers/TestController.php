@@ -6,8 +6,8 @@ use App\Request;
 
 class TestController {
     public function test($params, Request $request) {
-        //dd($params);
-        $data = $request->getBody()->name;
+        
+        $data = $request->getBody()->age;
         var_dump($data);
         echo 'hello ' . $params['id'] ;
     }
@@ -16,5 +16,10 @@ class TestController {
     {
         echo $params['slug'] . ' - ' . $params['id'];
 
+    }
+
+    public function testMethod($params, Request $request) {
+        dump($request);
+        dd($params);
     }
 }
