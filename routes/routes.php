@@ -10,7 +10,7 @@ $router->get('/hello/{name}', function($params) {
 });
 */
 
-$router->get('/p/{id:string}', 'TestController@testMethod');
+$router->get('/p/{slug:string}/{id:int}', 'TestController@testMethod');
 
 $router->get('/', 'StartPageController@render');
 

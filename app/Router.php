@@ -70,7 +70,10 @@ class Router {
     }
 
     private function replace($route) {
-        $paramTypes = ['int' => '[\d]+', 'string' => '[a-zA-Z]+'];
+        $paramTypes = [
+            'int' => '[\d]+',
+            'string' => '[a-zA-Z]+'
+        ];
         $routeWithRegex = preg_replace_callback('%\{{1}(.*?)\}{1}%',function($match) use($paramTypes) {
             $matchArray = explode(':', $match[1]);
             if(isset($matchArray[1]) && array_key_exists($matchArray[1], $paramTypes)) {

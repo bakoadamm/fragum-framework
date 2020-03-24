@@ -31,8 +31,16 @@ class Dispatcher {
             $method = $handlerArray[1];
             $controller = "App\\Controllers\\" . $class;
             $ctrl = new $controller($this->loader, $this->twig);
-            $request->paramBag = $params;
-            $ctrl->$method($params, $request);
+
+            $cleanedParams = [];
+            foreach($params as $key => $param) {
+                if(gettype($key) == 'string') {
+                    $cleanedParams[$key] = $param;
+                }
+            }
+
+            $request->paramBag = $cleanedParams;
+            $ctrl->$method($cleanedParams, $request);
            
         }
         

@@ -4,11 +4,11 @@ namespace App\Controllers;
 
 use App\Request;
 
-class TestController {
+class TestController extends Controller {
     public function test($params, Request $request) {
         
         $data = $request->getBody()->age;
-        var_dump($data);
+        dump($data);
         echo 'hello ' . $params['id'] ;
     }
 
@@ -19,7 +19,8 @@ class TestController {
     }
 
     public function testMethod($params, Request $request) {
-        dump($request);
-        dd($params);
+
+        $tpl = $this->twig->load("@templates/start.twig");
+        echo $tpl->render($request->paramBag);
     }
 }
