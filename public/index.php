@@ -33,4 +33,6 @@ $requestMethod = $_SERVER['REQUEST_METHOD'];
 $dispatcher = new Dispatcher($router, $loader, $twig);
 $dispatcher->handle(new Request($requestMethod, $_SERVER['REQUEST_URI']));
 
-Performance::results();
+if(getenv('APP_PERFORMANCE') == 'true') {
+	Performance::results();
+}
