@@ -2,28 +2,55 @@
 
 namespace App;
 
+use App\Http\RequestMethod;
+
 class Router {
 
+    /**
+     * @var
+     */
+    private $method;
+
+    public function __construct(){
+        $this->method = $_SERVER['REQUEST_METHOD'];
+    }
+
     private $routes = [
-        'get' => [],
-        'post' => []
+        'get'       => [],
+        'post'      => [],
+        'put'       => [],
+        'delete'    => []
     ];
 
-    function get($pattern, $handler) {
-        if($_SERVER['REQUEST_METHOD'] === 'GET') {
+    public function get($pattern, $handler) {
+        if(RequestMethod::isEqueal($this->method, RequestMethod::GET)) {
             $this->routes['get'][$pattern] = $handler;
             return $this;
         }  
     }
 
-    function post($pattern, callable $handler) {
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    public function post($pattern, $handler) {
+        if(RequestMethod::isEqueal($this->method, RequestMethod::POST)) {
             $this->routes['post'][$pattern] = $handler;
             return $this;
         }
     }
 
-    function match(Request $request) {
+    public function put($pattern, $handler) {
+        if(RequestMethod::isEqueal($this->method, RequestMethod::PUT)) {
+            $this->routes['put'][$pattern] = $handler;
+            return $this;
+        }
+    }
+
+    public function delete($pattern, $handler) {
+        if(RequestMethod::isEqueal($this->method, RequestMethod::DELETE)) {
+            $this->routes['delete'][$pattern] = $handler;
+            return $this;
+        }
+    }
+
+    public function match(Request $request) {
 
         $method = strtolower($request->getMethod());
         if ( ! isset($this->routes[$method])) {

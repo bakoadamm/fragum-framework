@@ -19,10 +19,7 @@ class Dispatcher {
         $params = isset($handler[1]) ? $handler[1] : null;
 
         if ( ! $handler) {
-            $this->loader->addPath(getenv('APP_TEMPLATE_DIR'), 'templates');
-            $tpl = $this->twig->load("@templates/errors/404.twig");
-            header("HTTP/1.1 404 Not Found");
-            echo $tpl->render([]);
+            $this->notFound();
             return;
         }
 
@@ -38,6 +35,13 @@ class Dispatcher {
            
         }
         
+    }
+
+    public function notFound() {
+        $this->loader->addPath(getenv('APP_TEMPLATE_DIR'), 'templates');
+        $tpl = $this->twig->load("@templates/errors/404.twig");
+        header("HTTP/1.1 404 Not Found");
+        echo $tpl->render([]);
     }
 
 }

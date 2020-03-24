@@ -13,11 +13,15 @@ html {
 *::selection { background-color: #19b791; }
 
 body {
-    margin: 0
+    margin: 0;
 }
 
 a {
     -webkit-text-decoration-skip: objects
+}
+
+.h-600 {
+    min-height: 550px;
 }
 
 a:active, a:hover {
@@ -6259,6 +6263,10 @@ iframe.uk-cover {
 
 .uk-flex {
     display: flex
+}
+
+.uk-flex-grow {
+    flex-grow:1;
 }
 
 .uk-flex-inline {

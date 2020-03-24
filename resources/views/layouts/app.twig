@@ -60,18 +60,9 @@
 
 {% include('@templates/fragments/menu.twig') %}
 
-{#
-<section class="uk-section uk-section-large uk-flex-1" style="/*height: 1500px;*/">
-    <div class="uk-container">
-        <div class="uk-grid uk-child-width-1-2@l uk-flex-middle">
-
-        </div>
-    </div>
-</section>
-#}
 {% block content %}{% endblock %}
 
-<footer class="uk-section uk-section-secondary uk-padding-remove-bottom" uk-sticky="top: 100vh">
+<footer class="uk-section uk-section-secondary uk-padding-remove-bottom uk-flex uk-flex-column uk-flex-last" uk-sticky="top: 100vh" >
     <div class="uk-container">
         <div class="uk-grid uk-grid-large" data-uk-grid="">
             <div class="uk-width-1-2@m uk-first-column">
@@ -118,6 +109,7 @@
         <span class="uk-text-small uk-text-muted">© 2020 fragum framework - <a href="https://fragum.tech">Created by fragum.tech</a> <a href="http://fragum.tech" title="" target="_blank" data-uk-tooltip="fragum.tech" aria-expanded="false"><span data-uk-icon="uikit" class="uk-icon"><img src="{{ url }}assets/img/logo-200x200.png" style="height: 20px;"></span></a></span>
     </div>
 </footer>
+
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
