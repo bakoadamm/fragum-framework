@@ -24,14 +24,14 @@ class Dispatcher {
         }
 
         if(is_callable($handler[0])) {
-            $handler[0]($params);
+            $handler[0]($params, $request);
         } else {
             $handlerArray = explode('@', $handler[0]);
             $class = $handlerArray[0];
             $method = $handlerArray[1];
             $controller = "App\\Controllers\\" . $class;
             $ctrl = new $controller($this->loader, $this->twig);
-            $ctrl->$method($params);
+            $ctrl->$method($params, $request);
            
         }
         

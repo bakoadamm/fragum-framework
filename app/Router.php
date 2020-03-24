@@ -69,7 +69,7 @@ class Router {
         return false;
     }
 
-    public function replace($route) {
+    private function replace($route) {
         $routeWithRegex = preg_replace_callback('%\{{1}(.*?)\}{1}%',function($match) {
             $return = '(?<' . $match[1] . '>[\w]+)';
             return $return;
