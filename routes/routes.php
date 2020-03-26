@@ -1,8 +1,5 @@
 <?php
 
-use App\Router;
-$router = new Router();
-
 $router->post('/hello/{id}', 'TestController@test');
 /*
 $router->get('/hello/{name}', function($params) {
@@ -15,7 +12,6 @@ $router->get('/p/{slug:string}/{id:int}', 'TestController@testMethod');
 $router->get('/', 'StartPageController@render');
 
 $router->get('/test/{slug}/{id}', 'TestController@testTwo');
-
 
 
 $router->get('/rolunk', 'AboutController@render');
