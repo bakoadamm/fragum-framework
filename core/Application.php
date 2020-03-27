@@ -16,11 +16,8 @@ class Application
 
         Performance::point();
 
-
         $this->container->get('dotEnv');
-
         $this->showErrors();
-
         $this->container->get('twig');
         $this->container->get('dispatcher');
 
@@ -29,7 +26,7 @@ class Application
         }
     }
 
-    public function showErrors() {
+    private function showErrors() {
         if(getenv('APP_DEBUG') == 'true') {
             ini_set("DISPLAY_ERRORS", 1);
             error_reporting(E_ALL);
