@@ -13,17 +13,21 @@ class Application
     }
 
     public function run() {
+        try {
+            Performance::point();
 
-        Performance::point();
+            $this->container->get('dotEnv');
+            $this->showErrors();
+            $this->container->get('twig');
+            $this->container->get('dispatcher');
 
-        $this->container->get('dotEnv');
-        $this->showErrors();
-        $this->container->get('twig');
-        $this->container->get('dispatcher');
-
-        if(getenv('APP_PERFORMANCE') == 'true') {
-            Performance::results();
+            if(getenv('APP_PERFORMANCE') == 'true') {
+                Performance::results();
+            }
+        } catch(\Exception $e) {
+            die('Critical error: the '. $e->getMessage() . ' service was not found');
         }
+
     }
 
     private function showErrors() {

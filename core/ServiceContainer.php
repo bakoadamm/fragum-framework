@@ -2,7 +2,6 @@
 
 namespace Core;
 
-
 class ServiceContainer
 {
     private $services;
@@ -22,7 +21,7 @@ class ServiceContainer
                 $this->services[$key] = $factory($this);
             }
         } else {
-            die('Critical error: the '. $key . ' service was not found');
+            throw new Exceptions\ServiceNotFoundException($key);
         }
         return $this->services[$key];
     }
