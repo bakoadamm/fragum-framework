@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Request;
+use \Core\Request;
 
 class TestController extends Controller {
     public function test($params, Request $request) {
@@ -19,7 +19,7 @@ class TestController extends Controller {
     }
 
     public function testMethod($params, Request $request) {
-
+        dd($request);
         $tpl = $this->twig->load("@templates/start.twig");
         echo $tpl->render($request->paramBag);
     }

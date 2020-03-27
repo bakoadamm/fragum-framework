@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Response;
+use \Core\Response;
 
 class StartPageController extends Controller {
 

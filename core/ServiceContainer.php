@@ -5,21 +5,25 @@ namespace Core;
 
 class ServiceContainer
 {
-    private $definitions;
+    private $services;
 
-    public function __construct(array $definitions = []) {
-        $this->definitions = $definitions;
+    public function __construct(array $services = []) {
+        $this->services = $services;
     }
 
     public function put($key, $value) {
-        $this->definitions[$key] = $value;
+        $this->services[$key] = $value;
     }
 
     public function get($key) {
-        if(array_key_exists($key, $this->definitions)) {
-            return $this->definitions[$key]($this);
+        if(array_key_exists($key, $this->services)) {
+            if(is_callable($this->services[$key])) {
+                $factory = $this->services[$key];
+                $this->services[$key] = $factory($this);
+            }
         } else {
             die('Critical error: the '. $key . ' service was not found');
         }
+        return $this->services[$key];
     }
 }

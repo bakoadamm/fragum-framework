@@ -3,6 +3,7 @@
 namespace Core;
 
 use Performance\Performance;
+
 class Application
 {
     private $container;
@@ -14,6 +15,7 @@ class Application
     public function run() {
 
         Performance::point();
+
 
         $this->container->get('dotEnv');
 

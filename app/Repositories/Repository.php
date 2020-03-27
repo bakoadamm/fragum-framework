@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Database;
+use Core\Database;
 
 abstract class Repository {
     public function __construct() {

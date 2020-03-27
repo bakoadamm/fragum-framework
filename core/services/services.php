@@ -27,20 +27,20 @@ return [
 
     'dispatcher' => function(ServiceContainer $container) {
 
-        $dispatcher = new \App\Dispatcher($container->get('router'), $container->get('twigLoader'), $container->get('twig'));
+        $dispatcher = new \Core\Dispatcher($container->get('router'), $container->get('twigLoader'), $container->get('twig'));
         $dispatcher->handle($container->get('request'));
         return $dispatcher;
     },
 
     'router' => function() {
-        $router = new \App\Router();
+        $router = new \Core\Router();
         require_once PROJECT_ROOT . '/../routes/routes.php';
         return $router;
     },
 
     'request' => function() {
         $requestMethod = $_SERVER['REQUEST_METHOD'];
-        return new \App\Request($requestMethod, $_SERVER['REQUEST_URI']);
+        return new \Core\Request($requestMethod, $_SERVER['REQUEST_URI']);
     }
 
 

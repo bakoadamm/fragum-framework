@@ -5,7 +5,8 @@
         "wanfeiyy/dd": "^1.0",
         "illuminate/database": "^7.1",
         "illuminate/events": "^7.2",
-        "bvanhoekelen/performance": "^2.5"
+        "bvanhoekelen/performance": "^2.5",
+        "phpmailer/phpmailer": "^6.1"
     },
     "autoload": {
     "psr-4": {
