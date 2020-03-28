@@ -4,5 +4,5 @@ define('PROJECT_ROOT', __DIR__);
 
 require_once '../vendor/autoload.php';
 
-$app = new Core\Application(new \Core\ServiceContainer(include '../config/app.php'));
-$app->run();
+(new Core\Application(new \Core\ServiceContainer(include '../config/app.php')))->run();
+
