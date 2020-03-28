@@ -16,9 +16,12 @@ class AboutController extends Controller {
     public function render() {
 
         $product = $this->repository->getProductById(1);
+        /*
         $data = [
             'product' => $product
         ];
+        */
+        $data = [];
         $tpl = $this->twig->load("@templates/about.twig");
         echo $tpl->render($data);
         

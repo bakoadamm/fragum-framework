@@ -5,3 +5,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule . index.php [L]
+
+#php_flag display_errors 1

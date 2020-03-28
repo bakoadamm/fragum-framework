@@ -63,7 +63,7 @@ class Router {
         }
 
         $path = $request->getPath();
-        $path = substr($path, 16); // for localhost
+        //$path = substr($path, 16); // for localhost
 
         foreach ($this->routes[$method] as $pattern => $handler) {
             $pattern = $this->replace($pattern);

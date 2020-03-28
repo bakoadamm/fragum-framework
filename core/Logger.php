@@ -26,7 +26,6 @@ class Logger {
             }
         }
 
-
     }
 
     public function log($message, $level = 'error') {

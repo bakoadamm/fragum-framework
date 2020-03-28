@@ -9,6 +9,8 @@ return [
         $dotenv->load();
     },
 
+    //'setTimeZone' => dd(getenv('APP_TIMEZONE')),//date_default_timezone_set(getenv('APP_TIMEZONE')),
+
     'twigLoader' => function() {
         $loader = new \Twig\Loader\FilesystemLoader(getenv('APP_TEMPLATE_DIR'));
         $loader->addPath(getenv('APP_TEMPLATE_DIR'),'templates');
@@ -44,6 +46,7 @@ return [
     },
 
     'phpMail' => function() {
+        //TODO: setup from env
         $mail = \PHPMailer\PHPMailer\PHPMailer(true);
         $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
         $mail->isSMTP();                                            // Send using SMTP

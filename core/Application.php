@@ -16,13 +16,13 @@ class Application
     public function run() {
 
         try {
-            date_default_timezone_set("Europe/Budapest");
-
+            //https://github.com/bvanhoekelen/performance
             Performance::point();
 
             $this->container->get('dotEnv');
             $this->showErrors();
 
+            //$this->container->get('setTimeZone');
             $this->container->get('twig');
             $this->container->get('dispatcher');
 
