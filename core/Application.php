@@ -3,6 +3,7 @@
 namespace Core;
 
 use Performance\Performance;
+use PHPMailer\PHPMailer\Exception;
 
 class Application
 {
@@ -13,11 +14,15 @@ class Application
     }
 
     public function run() {
+
         try {
+            date_default_timezone_set("Europe/Budapest");
+
             Performance::point();
 
             $this->container->get('dotEnv');
             $this->showErrors();
+
             $this->container->get('twig');
             $this->container->get('dispatcher');
 
