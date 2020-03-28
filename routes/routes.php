@@ -21,4 +21,6 @@ $router->post('/bar', function() {
     echo "POST bar\n"; 
 });
 
+$router->post('/parsed-body-test', 'TestController@parsedBody');
+
 

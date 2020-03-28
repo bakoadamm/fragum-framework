@@ -23,4 +23,11 @@ class TestController extends Controller {
         $tpl = $this->twig->load("@templates/start.twig");
         echo $tpl->render($request->paramBag);
     }
+
+    public function parsedBody(Request $request) {
+        /** @var \App\DataObjects\TestDto $testDto */
+        $testDto = $request->getParsedBody('\App\DataObjects\TestDto');
+
+        echo $testDto->email . ": " . $testDto->password;
+    }
 }

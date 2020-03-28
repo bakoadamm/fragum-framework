@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Exceptions\InvalidRequestParameterException;
+use Core\Exceptions\ObjectNotFoundException;
 use \Core\Http\RequestMethod;
 
 class Request {
@@ -44,5 +46,25 @@ class Request {
 
 	public function getBody() {
 		return $this->body;
+	}
+
+	public function getParsedBody($objectName) {
+		if (!class_exists($objectName))
+		{
+			throw new ObjectNotFoundException($objectName);
+		}
+
+		$paredClass = new $objectName();
+		foreach($paredClass as $key => $value)
+		{
+			if(!property_exists($this->body, $key))
+			{
+				throw new \HttpRequestException();
+			}
+
+			$paredClass->$key = $this->body->$key;
+		}
+
+		return $paredClass;
 	}
 }
