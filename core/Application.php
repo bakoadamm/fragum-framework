@@ -3,11 +3,13 @@
 namespace Core;
 
 use Performance\Performance;
-use PHPMailer\PHPMailer\Exception;
+use Core\Logger;
 
 class Application
 {
     private $container;
+
+    private $twig;
 
     public function __construct($container) {
         $this->container = $container;
@@ -23,14 +25,21 @@ class Application
             $this->showErrors();
 
             //$this->container->get('setTimeZone');
-            $this->container->get('twig');
+            $this->twig = $this->container->get('twig');
             $this->container->get('dispatcher');
 
             if(getenv('APP_PERFORMANCE') == 'true') {
                 Performance::results();
             }
         } catch(\Exception $e) {
-            die('Critical error: the '. $e->getMessage() . ' service was not found');
+
+            $logger = new Logger();
+            $logger->log($e->getMessage(), 'error');
+
+            $tpl = $this->twig->load("@templates/errors/500.twig");
+            header("HTTP/1.1 500 Internal Server Error");
+            echo $tpl->render([]);
+            exit;
         }
 
     }

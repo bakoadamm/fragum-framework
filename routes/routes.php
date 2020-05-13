@@ -13,7 +13,7 @@ $router->get('/', 'StartPageController@render');
 
 $router->get('/test/{slug}/{id}', 'TestController@testTwo');
 
-$router->get('/rolunk', 'AboutController@render');
+$router->get('/dokumentacio', 'DocumentationController@render');
 
 $router->get('/blog/{id}', 'StartPageController@blog');
 

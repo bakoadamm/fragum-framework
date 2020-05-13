@@ -1,6 +1,7 @@
 <?php
 
 namespace Core;
+use Core\Exceptions\TemplateNotFoundException;
 use Core\Interfaces\IDispatcher;
 
 class Dispatcher implements IDispatcher {
@@ -41,7 +42,12 @@ class Dispatcher implements IDispatcher {
             }
 
             $request->paramBag = $cleanedParams;
-            $ctrl->$method($cleanedParams, $request);
+            try {
+                $ctrl->$method($cleanedParams, $request);
+            } catch(TemplateNotFoundException $e) {
+                die($e->getMessage());
+            }
+
            
         }
         

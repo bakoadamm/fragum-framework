@@ -21,7 +21,7 @@ class ServiceContainer
                 $this->services[$key] = $factory($this);
             }
         } else {
-            throw new Exceptions\ServiceNotFoundException($key);
+            throw new \Core\Exceptions\ServiceNotFoundException($key);
         }
         return $this->services[$key];
     }
