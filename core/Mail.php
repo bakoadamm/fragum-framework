@@ -36,8 +36,7 @@ class Mail
         $this->mail->Port = getenv('MAIL_PORT');
 
         //Recipients
-        $this->mail->setFrom('noreply@fragum.tech', 'Compannica');
-        $this->mail->addAddress('bakoadam44@gmail.com', 'Bako Adam');     // Add a recipient
+        $this->mail->setFrom(getenv('MAIL_FROM_ADDRESS'), getenv('MAIL_FROM_NAME'));
         // $this->mail->addAddress('ellen@example.com');               // Name is optional
         //$this->mail->addReplyTo('info@example.com', 'Information');
         //$this->mail->addCC('cc@example.com');
@@ -54,6 +53,11 @@ class Mail
      *
      */
     public function send() {
+
+        foreach($this->addresses as $address) {
+            $this->mail->addAddress($address);
+        }
+
         try {
             $this->mail->send();
             $this->logger->log("Message has been sent", 'success');
