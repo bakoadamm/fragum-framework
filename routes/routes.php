@@ -1,6 +1,7 @@
 <?php
 
 $router->post('/hello/{id}', 'TestController@test');
+
 /*
 $router->get('/hello/{name}', function($params) {
     echo "hello ". $params['name'];
