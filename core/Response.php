@@ -2,15 +2,13 @@
 
 namespace Core;
 
-use App\Http\StatusCode;
-
 class Response
 {
     private $headers = [];
     private $statusCode;
     private $body;
 
-    public function __construct($statusCode = StatusCode\Success::OK, $headers = []) {
+    public function __construct($statusCode = Http\StatusCode\Success::OK, $headers = []) {
         $this->statusCode = $statusCode;
         $this->headers = $headers;
     }
@@ -23,7 +21,7 @@ class Response
         $this->headers = $headers;
     }
 
-    public function setStatusCode($statusCode = StatusCode\Success::OK) {
+    public function setStatusCode($statusCode = Http\StatusCode\Success::OK) {
         $this->statusCode = $statusCode;
     }
 
@@ -38,7 +36,7 @@ class Response
     }
 
     public function sendWithView($loader, $twig) {
-        $reasonPhrase = new StatusCode\ReasonPhrase();
+        $reasonPhrase = new Http\StatusCode\ReasonPhrase();
         header("HTTP/1.1 " . $this->statusCode . " ". $reasonPhrase->getReasonPhraseByStatusCode($this->statusCode));
         $data = [
             'code' => $this->statusCode,

@@ -30,7 +30,7 @@ class Request {
 
 	public function setBody() {
 		$this->body = null;
-		if (RequestMethod::isEqueal($this->method, RequestMethod::GET)) {
+		if (RequestMethod::isEqual($this->method, RequestMethod::GET)) {
 			return false;
 		}
 

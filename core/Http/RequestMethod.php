@@ -13,7 +13,7 @@ abstract class RequestMethod {
 	
 	const OPTION = 'option';
 	
-	static function isEqueal($method1, $method2)
+	static function isEqual($method1, $method2)
 	{
 		return strtolower($method1) == strtolower($method2);
 	}

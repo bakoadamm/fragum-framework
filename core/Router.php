@@ -28,28 +28,28 @@ class Router {
     ];
 
     public function get($pattern, $handler) {
-        if(RequestMethod::isEqueal($this->method, RequestMethod::GET)) {
+        if(RequestMethod::isEqual($this->method, RequestMethod::GET)) {
             $this->routes['get'][$pattern] = $handler;
             return $this;
         }  
     }
 
     public function post($pattern, $handler) {
-        if(RequestMethod::isEqueal($this->method, RequestMethod::POST)) {
+        if(RequestMethod::isEqual($this->method, RequestMethod::POST)) {
             $this->routes['post'][$pattern] = $handler;
             return $this;
         }
     }
 
     public function put($pattern, $handler) {
-        if(RequestMethod::isEqueal($this->method, RequestMethod::PUT)) {
+        if(RequestMethod::isEqual($this->method, RequestMethod::PUT)) {
             $this->routes['put'][$pattern] = $handler;
             return $this;
         }
     }
 
     public function delete($pattern, $handler) {
-        if(RequestMethod::isEqueal($this->method, RequestMethod::DELETE)) {
+        if(RequestMethod::isEqual($this->method, RequestMethod::DELETE)) {
             $this->routes['delete'][$pattern] = $handler;
             return $this;
         }
