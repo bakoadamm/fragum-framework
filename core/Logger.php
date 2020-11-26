@@ -16,7 +16,7 @@ class Logger {
     ];
 
     public function __construct() {
-        $this->logFile = getenv('APP_BASE_PATH');
+        $this->logFile = getenv('APP_BASE_PATH') . 'application.log';
 
         if(file_exists($this->logFile)) {
             $this->writeMod = 'a+';

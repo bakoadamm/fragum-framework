@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Core\Logger;
 use \Core\Response;
 
 class StartPageController extends Controller {
@@ -16,13 +17,20 @@ class StartPageController extends Controller {
 
     public function blog($params){
 
+        $logger = new Logger();
+        $logger->log($params->id, 'error');
+
+        /*
         $response = new Response(403);
         $response->sendWithView($this->loader, $this->twig);
+        */
+
 
         $data = [
             'headline' => 'BLOG ' . $params['id']
         ];
         $tpl = $this->twig->load("@templates/start.twig");
         echo $tpl->render($data);
+
     }
 }
