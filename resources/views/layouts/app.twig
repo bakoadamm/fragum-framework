@@ -89,6 +89,7 @@
         }
 
     </style>
+    {% block css %}{% endblock %}
 
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -160,7 +161,39 @@
   crossorigin="anonymous"></script>
 <script src="{{ url }}assets/js/uikit-icons.min.js"></script>
 <script src="{{ url }}assets/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
 <script>
+    const editor = new EditorJS({
+        /**
+         * Id of Element that should contain Editor instance
+         */
+        holder: 'editorjs',
+        tools: {
+            header: Header,
+            quote: Quote,
+        },
+
+    });
+
+    let saveBtn = document.getElementById('save');
+    saveBtn.addEventListener("click", function(event) {
+        editor.save().then((outputData) => {
+            fetch('/api/save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(outputData),
+            });
+            console.log('Article data: ', outputData)
+        }).catch((error) => {
+            console.log('Saving failed: ', error)
+        });
+    })
+
+
     document.addEventListener("DOMContentLoaded", function(event) {
         var overlay = $('#overlay');
         window.addEventListener('load', function() {
@@ -168,6 +201,7 @@
         });
     });
 </script>
+
 {% block js %}{% endblock %}
 </body>
 </html>

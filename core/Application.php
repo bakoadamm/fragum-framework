@@ -17,6 +17,8 @@ class Application
 
     public function run() {
 
+        $logger = $this->container->get('logger');
+
         try {
             //https://github.com/bvanhoekelen/performance
             Performance::point();

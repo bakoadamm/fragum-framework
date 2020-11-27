@@ -45,6 +45,10 @@ return [
         return new \Core\Request($requestMethod, $_SERVER['REQUEST_URI']);
     },
 
+    'logger' => function() {
+        return new \Core\Logger();
+    },
+
     'phpMail' => function() {
         //TODO: setup from env
         $mail = \PHPMailer\PHPMailer\PHPMailer(true);

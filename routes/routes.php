@@ -22,6 +22,10 @@ $router->post('/bar', function() {
     echo "POST bar\n"; 
 });
 
+$router->get('/cms', 'ContentController@cms');
+
+$router->post('/api/save', 'ContentController@save');
+
 $router->post('/parsed-body-test', 'TestController@parsedBody');
 
 

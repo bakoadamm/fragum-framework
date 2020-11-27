@@ -18,7 +18,7 @@ class StartPageController extends Controller {
     public function blog($params){
 
         $logger = new Logger();
-        $logger->log($params->id, 'error');
+        $logger->log($params['id'], 'success');
 
         /*
         $response = new Response(403);
