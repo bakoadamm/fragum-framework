@@ -161,6 +161,7 @@
   crossorigin="anonymous"></script>
 <script src="{{ url }}assets/js/uikit-icons.min.js"></script>
 <script src="{{ url }}assets/js/uikit.min.js"></script>
+{#
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script>
@@ -201,7 +202,16 @@
         });
     });
 </script>
-
+#}
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var overlay = $('#overlay');
+        window.addEventListener('load', function() {
+            overlay.hide();
+        });
+    });
+</script>
+</script>
 {% block js %}{% endblock %}
 </body>
 </html>

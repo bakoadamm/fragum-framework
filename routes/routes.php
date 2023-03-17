@@ -14,7 +14,7 @@ $router->get('/', 'StartPageController@render');
 
 $router->get('/test/{slug}/{id}', 'TestController@testTwo');
 
-$router->get('/dokumentacio', 'DocumentationController@render');
+$router->get('/dokumentacio', 'DocumentationController@show');
 
 $router->get('/blog/{id}', 'StartPageController@blog');
 

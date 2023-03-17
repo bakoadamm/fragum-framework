@@ -21,6 +21,7 @@ class Mail
     /**
      * Mail constructor.
      * @param $content
+     * @throws \PHPMailer\PHPMailer\Exception
      */
     public function __construct($content) {
         $this->logger = new Logger();

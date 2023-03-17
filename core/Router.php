@@ -76,7 +76,8 @@ class Router {
 
     private function replace($route) {
         $paramTypes = $this->paramTypes;
-        $routeWithRegex = preg_replace_callback('%\{{1}(.*?)\}{1}%',function($match) use($paramTypes) {
+
+        return preg_replace_callback('%\{{1}(.*?)\}{1}%',function($match) use($paramTypes) {
             $matchArray = explode(':', $match[1]);
             if(isset($matchArray[1]) && array_key_exists($matchArray[1], $paramTypes)) {
                 $return = '(?<' . $matchArray[0] . '>' . $paramTypes[$matchArray[1]] .')';
@@ -85,8 +86,6 @@ class Router {
             }
             return $return;
         }, $route);
-
-        return $routeWithRegex;
 
     }
 }

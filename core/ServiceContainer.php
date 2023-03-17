@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Exceptions\ServiceNotFoundException;
+
 class ServiceContainer
 {
     private $services;
@@ -15,14 +17,16 @@ class ServiceContainer
     }
 
     public function get($key) {
-        if(array_key_exists($key, $this->services)) {
-            if(is_callable($this->services[$key])) {
-                $factory = $this->services[$key];
-                $this->services[$key] = $factory($this);
-            }
-        } else {
-            throw new \Core\Exceptions\ServiceNotFoundException($key);
+
+        if( ! array_key_exists($key, $this->services)) {
+            throw new ServiceNotFoundException($key);
         }
+
+        if(is_callable($this->services[$key])) {
+            $factory = $this->services[$key];
+            $this->services[$key] = $factory($this);
+        }
+
         return $this->services[$key];
     }
 }

@@ -2,45 +2,43 @@
 
 namespace Core;
 
+use Exception;
 use Performance\Performance;
 use Core\Logger;
 
 class Application
 {
+
     private $container;
 
     private $twig;
 
+    private $logger;
+
     public function __construct($container) {
         $this->container = $container;
+        $this->logger = new Logger();
     }
 
     public function run() {
 
-        $logger = $this->container->get('logger');
-
         try {
-            //https://github.com/bvanhoekelen/performance
-            Performance::point();
 
             $this->container->get('dotEnv');
             $this->showErrors();
 
-            //$this->container->get('setTimeZone');
             $this->twig = $this->container->get('twig');
             $this->container->get('dispatcher');
 
-            if(getenv('APP_PERFORMANCE') == 'true') {
-                Performance::results();
-            }
-        } catch(\Exception $e) {
+        } catch(Exception $e) {
 
             $logger = new Logger();
             $logger->log($e->getMessage(), 'error');
 
             $tpl = $this->twig->load("@templates/errors/500.twig");
             header("HTTP/1.1 500 Internal Server Error");
-            echo $tpl->render([]);
+            $message = getenv('APP_DEBUG') == 'true' ? $e->getMessage() : '';
+            echo $tpl->render(['message' => $message]);
             exit;
         }
 

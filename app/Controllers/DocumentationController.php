@@ -9,9 +9,15 @@ class DocumentationController extends Controller {
 
     private $repository;
 
+
     public function __construct($loader, $twig) {
         parent::__construct($loader, $twig);
         $this->repository = new Repository();
+    }
+
+    public function show() {
+        $tpl = $this->twig->load('@templates/documentation.twig');
+        echo $tpl->render([]);
     }
 
     public function render() {
